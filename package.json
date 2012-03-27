@@ -2,7 +2,7 @@
   "author": "QMJ <howest-interns@tchpc.tcd.ie> (http://www.tchpc.tcd.ie/)",
   "name": "dri",
   "description": "Digital Repository Ireland - backend operations",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "http://www.tchpc.tcd.ie/",
   "repository": {
     "type": "git",
@@ -12,8 +12,12 @@
   "scripts": {
     "test": "make test"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+	"mongolian": ">= 0.1.17"
+  },
+  "devDependencies": {
+	"expresso": ">= 0.9.2"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
