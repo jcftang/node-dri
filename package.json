@@ -1,0 +1,21 @@
+{
+  "author": "QMJ <howest-interns@tchpc.tcd.ie> (http://www.tchpc.tcd.ie/)",
+  "name": "dri",
+  "description": "Digital Repository Ireland - backend operations",
+  "version": "0.0.0",
+  "homepage": "http://www.tchpc.tcd.ie/",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-dri"
+  },
+  "main": "dri",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
