@@ -3,12 +3,12 @@ default:
 all:
 
 test:
-	expresso test/*
+	NODE_PATH=./lib expresso test/*
 
 coverage:
 	-rm -rf lib-cov
 	node-jscoverage lib lib-cov
-	expresso -I lib --coverage test/*
+	NODE_PATH=./lib-cov expresso -I lib --cov test/*
 
 clean:
 	-rm -rf lib-cov
