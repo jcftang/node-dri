@@ -8,7 +8,7 @@
     "type": "git",
     "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-dri"
   },
-  "main": "dri",
+  "main": "./lib/dri",
   "scripts": {
     "test": "make test"
   },
