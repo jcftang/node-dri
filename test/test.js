@@ -1,9 +1,11 @@
 var assert = require('assert');
-var data = require('../lib/dri');
+var data = require('dri');
 
 module.exports = {
 	'getSeries': function() {
-		var series = data.getAllSeries();
-		assert.isNotNull(series);
+		data.getAllSeries(function(data){
+			console.log(data);
+			assert.isDefined(data);
+		});
 	}
 };
