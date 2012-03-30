@@ -86,6 +86,19 @@ module.exports = {
 			});
 		//}, 100);
 	},
+	'approveItem': function(done) {
+		//setTimeout(function(){
+			dri.approveItem(itemId, "cfedoraLib", function(pid){
+				console.log("-" +pid);
+				assert.includes(pid,":");
+				console.log("remove");
+				done();
+			}, function(){
+				console.log("errr");
+				done();
+			});
+		//}, 100);
+	},
 	'removeItem': function(done) {
 		//setTimeout(function(){
 			dri.removeItem(itemId, function(id){
