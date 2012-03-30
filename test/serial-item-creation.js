@@ -10,7 +10,7 @@ var start = 1;
 module.exports = {
 	'createCollection': function(done) {
 		data = {};
-		data.name = "AutoTestColl"+rnd;
+		data.Title = "AutoTestColl"+rnd;
 		dri.createCollection(data,function(result){
 			//console.log(result);
 			assert.isDefined(result);
@@ -24,7 +24,7 @@ module.exports = {
 	'createSeries': function(done) {
 		data = {
 			collection:collId,
-			name:"AutoTestSeries"+rnd,
+			Title:"AutoTestSeries"+rnd,
 			author:"AutoBot"
 			};
 		dri.createSeries(data,function(result){
