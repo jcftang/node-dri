@@ -111,6 +111,30 @@ module.exports = {
 			});
 		//}, 100);
 	},
+	'removeSeries': function(done) {
+		//setTimeout(function(){
+			dri.removeItem(seriesId, function(id){
+				assert.includes(seriesId, id);
+				console.log("remove");
+				done();
+			}, function(){
+				console.log("errr");
+				done();
+			});
+		//}, 100);
+	},
+	'removeCollection': function(done) {
+		//setTimeout(function(){
+			dri.removeItem(collId, function(id){
+				assert.includes(collId, id);
+				console.log("remove");
+				done();
+			}, function(){
+				console.log("errr");
+				done();
+			});
+		//}, 100);
+	},
 	'getAllRecordsByType': function(done) {
 		//setTimeout(function(){
 			dri.getAllRecordsByType("serie", function(data){
