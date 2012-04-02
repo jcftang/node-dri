@@ -1,5 +1,5 @@
 var assert = require('chai').assert
-var dri = require('../lib/dri');
+var dri = require('dri');
 
 var collId = "";
 var seriesId = "";
