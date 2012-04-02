@@ -11,6 +11,7 @@ module.exports = {
 	'createCollection': function(done) {
 		data = {};
 		data.Title = "AutoTestColl"+rnd;
+		data.type="colection";
 		dri.createCollection(data,function(result){
 			//console.log(result);
 			assert.isDefined(result);
@@ -25,7 +26,8 @@ module.exports = {
 		data = {
 			collection:collId,
 			Title:"AutoTestSeries"+rnd,
-			author:"AutoBot"
+			author:"AutoBot",
+			type:"series"
 			};
 		dri.createSeries(data,function(result){
 			//console.log(result);
@@ -43,7 +45,8 @@ module.exports = {
 				parentId:seriesId,
 				Title:"AutoBotTitle"+rnd,
 				Subtitle:"AutoBotSubitle"+rnd,
-				objectId:rnd
+				objectId:rnd,
+				type:"item"
 			};
 			dri.createItem(data,function(result){
 				//console.log(i + " ------" + j);
