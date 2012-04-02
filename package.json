@@ -17,7 +17,8 @@
 	"fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-master.tar.gz"
   },
   "devDependencies": {
-	"expresso": ">= 0.9.2"
+	"mocha": ">= 1.0.0",
+	"chai": ">= 0.5.2"
   },
   "optionalDependencies": {},
   "engines": {
