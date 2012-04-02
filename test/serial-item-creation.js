@@ -13,12 +13,10 @@ module.exports = {
 		data.Title = "AutoTestColl"+rnd;
 		data.type="colection";
 		dri.createCollection(data,function(result){
-			//console.log(result);
 			assert.isDefined(result);
 			collId = result;
 			done();
 		}, function(e){
-			//console.log(e);
 			done();
 		});
 	},
@@ -30,17 +28,15 @@ module.exports = {
 			type:"series"
 			};
 		dri.createSeries(data,function(result){
-			//console.log(result);
 			assert.isDefined(result);
 			seriesId = result
 			done();
 		}, function(e){
-			//console.log(e);
 			done();
 		});
 	},
 	'createItem': function(done) {
-		//setTimeout(function(){
+		//setTimeout(function()
 			data = {
 				parentId:seriesId,
 				Title:"AutoBotTitle"+rnd,
@@ -49,7 +45,6 @@ module.exports = {
 				type:"item"
 			};
 			dri.createItem(data,function(result){
-				//console.log(i + " ------" + j);
 				assert.isDefined(result);
 				itemId = result;
 				done();
@@ -60,10 +55,8 @@ module.exports = {
 					done();
 				}
 			});
-		//}, 100);
 	},
 	'getItem': function(done) {
-		//setTimeout(function(){
 			dri.getItem(itemId,function(result){
 				console.log(result._id);
 				assert.eql(itemId, result._id);
@@ -73,10 +66,8 @@ module.exports = {
 					assert.isDefined(e);
 					done();
 			});
-		//}, 100);
 	},
 	'getItems': function(done) {
-		//setTimeout(function(){
 			dri.getItems(seriesId,function(result){
 				str = result[0].parentId;
 				console.log(str);
@@ -87,10 +78,8 @@ module.exports = {
 				assert.isDefined(e);
 				done();
 			});
-		//}, 100);
 	},
 	'approveItem': function(done) {
-		//setTimeout(function(){
 			dri.approveItem(itemId, "cfedoraLib", function(pid){
 				console.log("-" +pid);
 				assert.includes(pid,":");
@@ -100,10 +89,14 @@ module.exports = {
 				console.log("errr");
 				done();
 			});
-		//}, 100);
+	},
+	'getAllRecordsByType': function(done) {
+			dri.getAllRecordsByType("series", function(data){
+				assert.eql(data[0].type, "series");
+				done();
+			});
 	},
 	'removeItem': function(done) {
-		//setTimeout(function(){
 			dri.removeItem(itemId, function(id){
 				assert.includes(itemId, id);
 				console.log("remove");
@@ -112,10 +105,8 @@ module.exports = {
 				console.log("errr");
 				done();
 			});
-		//}, 100);
 	},
 	'removeSeries': function(done) {
-		//setTimeout(function(){
 			dri.removeItem(seriesId, function(id){
 				assert.includes(seriesId, id);
 				console.log("remove");
@@ -124,47 +115,32 @@ module.exports = {
 				console.log("errr");
 				done();
 			});
-		//}, 100);
 	},
 	'removeCollection': function(done) {
-		//setTimeout(function(){
 			dri.removeItem(collId, function(id){
 				assert.includes(collId, id);
 				console.log("remove");
 				done();
-			}, function(){
-				console.log("errr");
+			}, function(err){
+				console.log(err);
 				done();
 			});
-		//}, 100);
 	},
 	'getAllRecordsByType': function(done) {
-		//setTimeout(function(){
 			dri.getAllRecordsByType("series", function(data){
-				//console.log(data[0].type);
+				console.log("nja");
+				console.log(data[0].type);
 				assert.eql(data[0].type, "series");
 				done();
 			});
-		//}, 100);
 	},
 	'getAllMediaItems': function(done) {
-		//setTimeout(function(){
 			dri.getAllMediaItems(function(data){
 				//console.log(data[0]);
 				assert.isDefined(data);
 				done();
 			});
-		//}, 100);
-	}/*,
-	'findMedia': function(done) {
-		//setTimeout(function(){
-			dri.findMediaItem('4f71d50d000000580e000007',function(data){
-				//console.log(data[0].filename);
-				assert.isDefined(data);
-				done();
-			});
-		//}, 100);
-	}*/
+	}
 };
 
 
