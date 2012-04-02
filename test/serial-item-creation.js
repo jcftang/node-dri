@@ -101,8 +101,9 @@ module.exports = {
 				assert.includes(itemId, id);
 				console.log("remove");
 				done();
-			}, function(){
-				console.log("errr");
+			}, function(err){
+				console.log("RemoveItem");
+				console.log(err);
 				done();
 			});
 	},
@@ -111,8 +112,9 @@ module.exports = {
 				assert.includes(seriesId, id);
 				console.log("remove");
 				done();
-			}, function(){
-				console.log("errr");
+			}, function(err){
+				console.log("RemoveSeries");
+				console.log(err);
 				done();
 			});
 	},
@@ -128,8 +130,8 @@ module.exports = {
 	},
 	'getAllRecordsByType': function(done) {
 			dri.getAllRecordsByType("series", function(data){
-				console.log("nja");
-				console.log(data[0].type);
+				//console.log("nja");
+				//console.log(data[0].type);
 				assert.eql(data[0].type, "series");
 				done();
 			});
