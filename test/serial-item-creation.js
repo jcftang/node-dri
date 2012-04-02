@@ -140,9 +140,9 @@ module.exports = {
 	},
 	'getAllRecordsByType': function(done) {
 		//setTimeout(function(){
-			dri.getAllRecordsByType("serie", function(data){
+			dri.getAllRecordsByType("series", function(data){
 				//console.log(data[0].type);
-				assert.eql(data[0].type, "serie");
+				assert.eql(data[0].type, "series");
 				done();
 			});
 		//}, 100);
