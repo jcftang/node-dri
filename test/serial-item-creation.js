@@ -5,7 +5,7 @@ var collId = "";
 var seriesId = "";
 var itemId = "";
 var arrItems = new Array()
-var rnd = Math.floor(Math.random()*11);
+var rnd = Math.floor(Math.random()*1001);
 var start = 1;
 module.exports = {
 	'createCollection': function(done) {
