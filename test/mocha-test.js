@@ -8,7 +8,8 @@ var itemId = "";
 var arrItems = new Array();
 var rnd = Math.floor(Math.random() * 1001);
 
-describe('Test cases for node-dri package', function() {describe('Creating a Collection', function() {
+describe('Test cases for node-dri package', function() {
+	describe('Creating a Collection', function() {
 		it('should create a collection and return the id of the collection', function(done) {
 			var data = {};
 			data.Title = "AutoTestColl" + rnd;
