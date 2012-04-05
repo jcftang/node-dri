@@ -117,7 +117,7 @@ describe('Test cases for node-dri package', function() {describe('Creating a Col
 				should.equal(collId, id);
 				done();
 			}, function(err) {
-				console.log(err);
+				should.not.exist(e);
 				done();
 			});
 		})
