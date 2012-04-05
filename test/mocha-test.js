@@ -63,6 +63,42 @@ describe('Test cases for node-dri package', function() {describe('Creating a Col
 				should.not.exist(e);
 			});
 		})
+	}), describe('Inserting an Item', function() {
+		it('Should create the new itemn, update the position of the other items and return the id of the created item', function(done) {
+			var data = {
+				amount : 10,
+				parentId : seriesId,
+				objectId : 0,
+				Title : "AutoBotTitle" + rnd,
+				Subtitle : "AutoBotSubitle" + rnd,
+				type : "item"
+			};
+			for(var i = 0; i < data.amount; i++) {
+				data.objectId = data.objectId +i;
+				dri.createItem(data, function(result) {
+					result.should.be.ok;
+				}, function(e) {
+					should.not.exist(e);
+				});
+			}
+			data.objectId = 3;
+			dri.updateIdOrder(data.parentId, data.objectId, 1, function(amount) {
+				amount.should.be.a("number");
+				dri.createItem(data, function(id) {
+					dri.getItems(seriesId, function(result) {
+						var str = result.length;
+						should.equal(str, 12);
+						done();
+					}, function(e) {
+						should.not.exist(e);
+						done();
+					});
+				}, function(err) {
+					should.not.exist(e);
+					done();
+				});
+			})
+		})
 	}), describe('Getting all children of a parent item', function() {
 		it('should get an array of children', function(done) {
 			dri.getItems(seriesId, function(result) {
