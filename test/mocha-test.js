@@ -65,7 +65,7 @@ describe('Test cases for node-dri package', function() {
 			});
 		})
 	}), describe('Inserting an Item', function() {
-		it('Should create the new itemn, update the position of the other items and return the id of the created item', function(done) {
+		it('Should create the new item, update the position of the other items and return the id of the created item', function(done) {
 			var data = {
 				amount : 10,
 				parentId : seriesId,
@@ -94,7 +94,7 @@ describe('Test cases for node-dri package', function() {
 						should.not.exist(e);
 						done();
 					});
-				}, function(err) {
+				}, function(e) {
 					should.not.exist(e);
 					done();
 				});
