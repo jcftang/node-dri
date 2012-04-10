@@ -132,6 +132,12 @@ describe('Test cases for node-dri package', function() {
 		it('should return the id of the removed item', function() {
 			dri.removeItem(seriesId, function(id) {
 				should.equal(seriesId, id);
+				dri.getItems(id, function(result) {
+					var str = result.length;
+					should.equal(0, str);
+				}, function(e) {
+					should.not.exist(e);
+				});
 			}, function(err) {
 				should.not.exist(e);
 			});
@@ -140,6 +146,12 @@ describe('Test cases for node-dri package', function() {
 		it('should return the id of the removed item', function() {
 			dri.removeItem(itemId, function(id) {
 				should.equal(itemId, id);
+				dri.getItems(id, function(result) {
+					var str = result.length;
+					should.equal(0, str);
+				}, function(e) {
+					should.not.exist(e);
+				});
 			}, function(err) {
 				should.not.exist(e);
 
@@ -147,16 +159,21 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Removing a collection and children series and/or items', function() {
 		it('should return the id of the removed collection', function() {
-			
-				dri.removeItem(collId, function(id) {
+
+			dri.removeItem(collId, function(id) {
 				should.equal(collId, id);
+				dri.getItems(id, function(result) {
+					var str = result.length;
+					should.equal(0, str);
+				}, function(e) {
+					should.not.exist(e);
+				});
 			}, function(err) {
 				should.not.exist(e);
 
 			});
-		
-			
 		})
+
 	}), describe('Getting all media files', function() {
 		it('should return an array with the media files metadata', function(done) {
 			dri.getAllMediaItems(function(data) {
