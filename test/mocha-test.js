@@ -7,6 +7,43 @@ var seriesId = "";
 var itemId = "";
 var arrItems = new Array();
 var rnd = Math.floor(Math.random() * 1001);
+function test(callback) {
+	var idCol;
+	var data = {};
+	data.Title = "AutoTestColl" + rnd;
+	data.type = "collection";
+	dri.createCollection(data, function(result) {
+		idCol = result;
+		var data = {
+			collection : result,
+			Title : "AutoTestSeries" + rnd,
+			author : "AutoBot",
+			type : "series"
+		};
+		dri.createSeries(data, function(result) {
+			var data = {
+				amount : 10,
+				parentId : result,
+				objectId : 0,
+				Title : "AutoBotTitle" + rnd,
+				Subtitle : "AutoBotSubitle" + rnd,
+				type : "item"
+			};
+			for(var i = 0; i < data.amount; i++) {
+				data.objectId = data.objectId + i;
+				dri.createItem(data, function(result) {
+					callback( idCol);
+				}, function(e) {
+					should.not.exist(e);
+				});
+			}
+		}, function(e) {
+			should.not.exist(e);
+		});
+	}, function(e) {
+		should.not.exist(e);
+	});
+}
 
 describe('Test cases for node-dri package', function() {
 	describe('Creating a Collection', function() {
@@ -129,34 +166,33 @@ describe('Test cases for node-dri package', function() {
 			});
 		})
 	}), describe('Removing an item and children items', function() {
-		it('should return the id of the removed item', function(done) {
-			dri.removeItem(itemId, function(id) {
-				should.equal(itemId, id);
-				done();
-			}, function(err) {
-				should.not.exist(e);
-				done();
-			});
-		})
-	}), describe('Removing a series and children items', function() {
-		it('should return the id of the removed series', function(done) {
+		it('should return the id of the removed item', function() {
 			dri.removeItem(seriesId, function(id) {
 				should.equal(seriesId, id);
-				done();
 			}, function(err) {
 				should.not.exist(e);
-				done();
 			});
 		})
-	}), describe('Removing a colection and children series or items', function() {
-		it('should return the id of the removed collection', function(done) {
-			dri.removeItem(collId, function(id) {
-				should.equal(collId, id);
-				done();
+	}), describe('Removing an item and children items', function() {
+		it('should return the id of the removed item', function() {
+			dri.removeItem(itemId, function(id) {
+				should.equal(itemId, id);
 			}, function(err) {
 				should.not.exist(e);
-				done();
+
 			});
+		})
+	}), describe('Removing a colection and children series and/or items', function() {
+		it('should return the id of the removed collection', function() {
+			
+				dri.removeItem(collId, function(id) {
+				should.equal(collId, id);
+			}, function(err) {
+				should.not.exist(e);
+
+			});
+		
+			
 		})
 	}), describe('Getting all media files', function() {
 		it('should return an array with the media files metadata', function(done) {
@@ -167,3 +203,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	})
 })
+
+
+
+
