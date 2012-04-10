@@ -7,43 +7,6 @@ var seriesId = "";
 var itemId = "";
 var arrItems = new Array();
 var rnd = Math.floor(Math.random() * 1001);
-function test(callback) {
-	var idCol;
-	var data = {};
-	data.Title = "AutoTestColl" + rnd;
-	data.type = "collection";
-	dri.createCollection(data, function(result) {
-		idCol = result;
-		var data = {
-			collection : result,
-			Title : "AutoTestSeries" + rnd,
-			author : "AutoBot",
-			type : "series"
-		};
-		dri.createSeries(data, function(result) {
-			var data = {
-				amount : 10,
-				parentId : result,
-				objectId : 0,
-				Title : "AutoBotTitle" + rnd,
-				Subtitle : "AutoBotSubitle" + rnd,
-				type : "item"
-			};
-			for(var i = 0; i < data.amount; i++) {
-				data.objectId = data.objectId + i;
-				dri.createItem(data, function(result) {
-					callback( idCol);
-				}, function(e) {
-					should.not.exist(e);
-				});
-			}
-		}, function(e) {
-			should.not.exist(e);
-		});
-	}, function(e) {
-		should.not.exist(e);
-	});
-}
 
 describe('Test cases for node-dri package', function() {
 	describe('Creating a Collection', function() {
@@ -203,6 +166,44 @@ describe('Test cases for node-dri package', function() {
 		})
 	})
 })
+
+function createTestObjects(callback) {
+	var idCol;
+	var data = {};
+	data.Title = "AutoTestColl" + rnd;
+	data.type = "collection";
+	dri.createCollection(data, function(result) {
+		idCol = result;
+		var data = {
+			collection : result,
+			Title : "AutoTestSeries" + rnd,
+			author : "AutoBot",
+			type : "series"
+		};
+		dri.createSeries(data, function(result) {
+			var data = {
+				amount : 10,
+				parentId : result,
+				objectId : 0,
+				Title : "AutoBotTitle" + rnd,
+				Subtitle : "AutoBotSubitle" + rnd,
+				type : "item"
+			};
+			for(var i = 0; i < data.amount; i++) {
+				data.objectId = data.objectId + i;
+				dri.createItem(data, function(result) {
+					callback( idCol);
+				}, function(e) {
+					should.not.exist(e);
+				});
+			}
+		}, function(e) {
+			should.not.exist(e);
+		});
+	}, function(e) {
+		should.not.exist(e);
+	});
+}
 
 
 
