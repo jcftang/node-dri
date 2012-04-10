@@ -145,7 +145,7 @@ describe('Test cases for node-dri package', function() {
 
 			});
 		})
-	}), describe('Removing a colection and children series and/or items', function() {
+	}), describe('Removing a collection and children series and/or items', function() {
 		it('should return the id of the removed collection', function() {
 			
 				dri.removeItem(collId, function(id) {
