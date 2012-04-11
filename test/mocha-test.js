@@ -111,7 +111,7 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Removing the item ', function() {
+	})/*, describe('Removing the item ', function() {
 		it('should remove the item from MongoDB', function(done) {
 			dri.removeItem(itemId, function(result) {
 				assert.include(result,itemId)
@@ -141,5 +141,5 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	})
+	})*/
 })
