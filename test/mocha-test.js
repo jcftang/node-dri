@@ -87,54 +87,7 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), /*describe('Inserting an Item', function() {
-		it('Should create the new item, update the position of the other items and return the id of the created item', function(done) {
-			var data = {
-				amount : 10,
-				parentId : seriesId,
-				objectId : 0,
-				Title : "AutoBotTitle" + rnd,
-				Subtitle : "AutoBotSubitle" + rnd,
-				type : "item"
-			};
-			for(var i = 0; i < data.amount; i++) {
-				data.objectId = data.objectId +i;
-				dri.createItem(data, function(result) {
-					result.should.be.ok;
-				}, function(e) {
-					should.not.exist(e);
-				});
-			}
-			data.objectId = 3;
-			dri.updateIdOrder(data.parentId, data.objectId, 1, function(amount) {
-				amount.should.be.a("number");
-				dri.createItem(data, function(id) {
-					dri.getItems(seriesId, function(result) {
-						var str = result.length;
-						should.equal(str, 12);
-						done();
-					}, function(e) {
-						should.not.exist(e);
-						done();
-					});
-				}, function(e) {
-					should.not.exist(e);
-					done();
-				});
-			})
-		})
-	}), describe('Getting all children of a parent item', function() {
-		it('should get an array of children', function(done) {
-			dri.getItems(seriesId, function(result) {
-				var str = result[0].parentId;
-				should.equal(str, seriesId);
-				done();
-			}, function(e) {
-				should.not.exist(e);
-				done();
-			});
-		})
-	}), */describe('Pushing the item into fedora', function() {
+	}), describe('Pushing the item into fedora', function() {
 		it('should push the item into fedora and return the fedora id from that item', function(done) {
 			dri.approveItem(itemId, "cfedoraLib", function(pid) {
 				pid.should.include(":");
@@ -151,7 +104,6 @@ describe('Test cases for node-dri package', function() {
 				done();
 			}, function(err) {
 				should.not.exist(e);
-				done();
 			});
 		})
 	}),describe('Removing a series and children items', function() {
@@ -161,7 +113,6 @@ describe('Test cases for node-dri package', function() {
 				done();
 			}, function(err) {
 				should.not.exist(e);
-				done();
 			});
 		})
 	}), describe('Removing a Dri-Collection and children series or items', function() {
@@ -171,15 +122,12 @@ describe('Test cases for node-dri package', function() {
 				done();
 			}, function(err) {
 				should.not.exist(e);
-				done();
 			});
 		})
-	})/*, describe('Getting all media files', function() {
-		it('should return an array with the media files metadata', function(done) {
-			dri.getAllMediaItems(function(data) {
-				should.exist(data);
-				done();
-			});
-		})
-	})*/
+	})
 })
+
+
+
+
+

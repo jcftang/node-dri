@@ -14,7 +14,7 @@
   },
   "dependencies": {
 	"mongolian": ">= 0.1.17",
-	"fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-master.tar.gz"
+	"fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-0.0.2.tar.gz"
   },
   "devDependencies": {
 	"mocha": ">= 1.0.0",
