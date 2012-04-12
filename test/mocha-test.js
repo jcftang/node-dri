@@ -34,7 +34,8 @@ describe('Test cases for node-dri package', function() {
 					title : "AutoTestColl" + rnd,
 					subtitle : "AutoTestColl" + rnd
 				},
-				status : "Open"
+				status : "Open",
+				parentId: collId
 			};
 			dri.createSeries(data, function(result) {
 				result.should.be.ok
@@ -52,7 +53,8 @@ describe('Test cases for node-dri package', function() {
 					title : "AutoTestColl" + rnd,
 					subtitle : "AutoTestColl" + rnd
 				},
-				status : "Approved"
+				status : "Approved",
+				parentId: seriesId
 			};
 			dri.createItem(data, function(result) {
 				result.should.be.ok
@@ -81,6 +83,15 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
+	}), describe('Getting a Series children', function() {
+		it('should get an Series and return the children', function(done) {
+			dri.getChildren(seriesId, function(result) {
+				assert.include(result[0],itemId);
+				done();
+			}, function(e) {
+				should.not.exist(e);
+			});
+		})
 	}), describe('Getting a Dri-Collection', function() {
 		it('should get an Dri-Collection and return the Dri-Collection', function(done) {
 			dri.getCollection(collId, function(result) {
@@ -100,7 +111,7 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Removing the item ', function() {
+	})/*, describe('Removing the item ', function() {
 		it('should remove the item from MongoDB', function(done) {
 			dri.removeItem(itemId, function(result) {
 				assert.include(result,itemId)
@@ -130,5 +141,5 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	})
+	})*/
 })
