@@ -63,17 +63,6 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Adding an Item to series', function() {
-		it('should add the given item to the given series', function(done) {
-
-			dri.addItemToSeries(itemId, seriesId, function(result) {
-				result.should.be.ok
-				assert.include(result,itemId)
-				done();
-			}, function(e) {
-				should.not.exist(e);
-			});
-		})
 	}), describe('Getting an Item', function() {
 		it('should get an Item and return the Item', function(done) {
 			dri.getItem(itemId, function(result) {
