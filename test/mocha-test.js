@@ -12,7 +12,6 @@ describe('Test cases for node-dri package', function() {
 	describe('Get object types', function() {
 		it('should return an array of all the object types', function(done) {
 			dri.getObjectTypes(function(result) {
-				console.log(result)
 				result.should.be.ok
 				done();
 			}, function(e) {
@@ -27,9 +26,10 @@ describe('Test cases for node-dri package', function() {
 					title : "AutoTestColl" + rnd,
 					subtitle : "AutoTestColl" + rnd
 				},
-				status : "Open"
+				status : "Open",
+				type:"collection"
 			};
-			dri.createCollection(data, function(result) {
+			dri.createObject(data, function(result) {
 				result.should.be.ok
 				assert.length(result,24)
 				collId = result;
@@ -46,9 +46,10 @@ describe('Test cases for node-dri package', function() {
 					subtitle : "AutoTestSeries" + rnd
 				},
 				status : "Open",
+				type:"series",
 				parentId: collId
 			};
-			dri.createSeries(data, function(result) {
+			dri.createObject(data, function(result) {
 				result.should.be.ok
 				assert.length(result,24)
 				seriesId = result;
@@ -65,9 +66,10 @@ describe('Test cases for node-dri package', function() {
 					subtitle : "AutoTestItem" + rnd
 				},
 				status : "Open",
+				type:"item",
 				parentId: seriesId
 			};
-			dri.createItem(data, function(result) {
+			dri.createObject(data, function(result) {
 				result.should.be.ok
 				assert.length(result,24)
 				itemId = result;
