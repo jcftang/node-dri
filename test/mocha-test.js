@@ -9,7 +9,7 @@ var arrItems = new Array();
 var rnd = Math.floor(Math.random() * 1001);
 
 describe('Test cases for node-dri package', function() {
-	describe('Get object types', function() {
+	describe('Calling getObjectTypes(), will get object types', function() {
 		it('should return an array of all the object types', function(done) {
 			dri.getObjectTypes(function(result) {
 				result.should.be.ok
@@ -19,8 +19,8 @@ describe('Test cases for node-dri package', function() {
 			});
 		})
 	}),
-	describe('Creating a Dri-Collection', function() {
-		it('should create a Dri-Collection and return the id of the Dri-Collection', function(done) {
+	describe('Calling createObject() to create a collection', function() {
+		it('should create a collection and return the id of the collection', function(done) {
 			var data = {
 				properties : {
 					title : "AutoTestColl" + rnd,
@@ -38,7 +38,7 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Creating a Series', function() {
+	}), describe('Calling createObject() to create a series', function() {
 		it('should create a series and return the id of the series', function(done) {
 			var data = {
 				properties : {
@@ -58,7 +58,7 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Creating an Item', function() {
+	}), describe('Calling createObject() to create an item', function() {
 		it('should create an Item and return the id of the Item', function(done) {
 			var data = {
 				properties : {
@@ -78,7 +78,7 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Getting an Item', function() {
+	}), describe('Calling getObject() to get an item', function() {
 		it('should get an Item and return the Item', function(done) {
 			dri.getObject(itemId, function(result) {
 				assert.include(result._id,itemId)
@@ -87,8 +87,8 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Getting a Series', function() {
-		it('should get an Series and return the Series', function(done) {
+	}), describe('Calling getObject() to get a Series', function() {
+		it('should get an series and return the series', function(done) {
 			dri.getObject(seriesId, function(result) {
 				assert.equal(seriesId, result._id);
 				done();
@@ -96,8 +96,8 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Getting a Series children', function() {
-		it('should get an Series and return the children', function(done) {
+	}), describe('Calling getChildren() to get the children of a series', function() {
+		it('should get the series and return the children', function(done) {
 			dri.getChildren(seriesId, function(result) {
 				assert.include(result[0],itemId);
 				done();
@@ -105,8 +105,8 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Getting a Dri-Collection', function() {
-		it('should get an Dri-Collection and return the Dri-Collection', function(done) {
+	}), describe('Calling getObject() to get a collection', function() {
+		it('should get a collection and return the collection', function(done) {
 			dri.getObject(collId, function(result) {
 				assert.equal(collId, result._id);
 				done();
@@ -114,7 +114,7 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}), describe('Pushing the item into fedora', function() {
+	}), describe('Calling approveItem() with a item id', function() {
 		it('should push the item into fedora and return the fedora id from that item', function(done) {
 			dri.approveItem(itemId, "cfedoraLib", function(pid) {
 				pid.should.include(":");
@@ -124,7 +124,7 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Removing the item ', function() {
+	}), describe('Calling removeObject() with a item id', function() {
 		it('should remove the item from MongoDB', function(done) {
 			dri.removeObject(itemId, function(result) {
 				assert.include(result,itemId)
@@ -134,7 +134,7 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Removing the series ', function() {
+	}), describe('calling removeObject() with a series id', function() {
 		it('should remove the series from MongoDB', function(done) {
 			dri.removeObject(seriesId, function(result) {
 				assert.include(result,seriesId)
@@ -144,8 +144,8 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Removing the dri-collection ', function() {
-		it('should remove the dri-collection from MongoDB', function(done) {
+	}), describe('Calling removeObject() with a collection id', function() {
+		it('should remove the collection from MongoDB', function(done) {
 			dri.removeObject(collId, function(result) {
 				assert.include(result,collId)
 				done();
