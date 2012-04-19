@@ -116,7 +116,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling approveItem(id, fedoraNamespace, onSuccess, onError) with a item id', function() {
 		it('should push the item into fedora and return the fedora id from that item', function(done) {
-			dri.approveItem(itemId, "cfedoraLib", function(pid) {
+			dri.approveItem(itemId, "afedoraLib", function(pid) {
 				pid.should.include(":");
 				done();
 			}, function(err) {
