@@ -26,7 +26,7 @@ describe('Test cases for node-dri package', function() {
 					title : "AutoTestColl" + rnd,
 					subtitle : "AutoTestColl" + rnd
 				},
-				status : "Open",
+				status : "open",
 				type:"collection"
 			};
 			dri.createObject(data, function(result) {
@@ -45,7 +45,7 @@ describe('Test cases for node-dri package', function() {
 					title : "AutoTestSeries" + rnd,
 					subtitle : "AutoTestSeries" + rnd
 				},
-				status : "Open",
+				status : "open",
 				type:"series",
 				parentId: collId
 			};
@@ -65,7 +65,7 @@ describe('Test cases for node-dri package', function() {
 					title : "AutoTestItem" + rnd,
 					subtitle : "AutoTestItem" + rnd
 				},
-				status : "Open",
+				status : "open",
 				type:"item",
 				parentId: seriesId
 			};
