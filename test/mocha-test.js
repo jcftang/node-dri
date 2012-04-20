@@ -1,3 +1,7 @@
+/**
+ * @author mvanwamb
+ * @author Quirijn Groot Bluemink
+ */
 var assert = require('chai').assert
 var should = require('should')
 var dri = require('dri');
