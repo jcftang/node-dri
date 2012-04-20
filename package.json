@@ -2,7 +2,7 @@
   "author": "QMJ <howest-interns@tchpc.tcd.ie> (http://www.tchpc.tcd.ie/)",
   "name": "dri",
   "description": "Digital Repository Ireland - backend operations",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "http://www.tchpc.tcd.ie/",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
   "dependencies": {
 	"mongolian": ">= 0.1.17",
 	"mongoose": ">= 2.5.13",
-	"fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-0.0.2.tar.gz"
+	"fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-0.0.3.tar.gz"
   },
   "devDependencies": {
 	"mocha": ">= 1.0.0",
