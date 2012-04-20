@@ -22,8 +22,7 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
-	}),
-	describe('Calling createObject(data, onSuccess, onError) to create a collection', function() {
+	}), describe('Calling createObject(data, onSuccess, onError) to create a collection', function() {
 		it('should create a collection and return the id of the collection', function(done) {
 			var data = {
 				properties : {
@@ -31,11 +30,11 @@ describe('Test cases for node-dri package', function() {
 					subtitle : "SubAutoTestColl" + rnd
 				},
 				status : "open",
-				type:"collection"
+				type : "collection"
 			};
 			dri.createObject(data, function(result) {
 				result.should.be.ok
-				assert.length(result,24)
+				assert.length(result, 24)
 				collId = result;
 				done();
 			}, function(e) {
@@ -50,12 +49,12 @@ describe('Test cases for node-dri package', function() {
 					subtitle : "SubAutoTestSeries" + rnd
 				},
 				status : "open",
-				type:"series",
-				parentId: collId
+				type : "series",
+				parentId : collId
 			};
 			dri.createObject(data, function(result) {
 				result.should.be.ok
-				assert.length(result,24)
+				assert.length(result, 24)
 				seriesId = result;
 				done();
 			}, function(e) {
@@ -70,12 +69,12 @@ describe('Test cases for node-dri package', function() {
 					subtitle : "SubAutoTestItem" + rnd
 				},
 				status : "open",
-				type:"item",
-				parentId: seriesId
+				type : "item",
+				parentId : seriesId
 			};
 			dri.createObject(data, function(result) {
 				result.should.be.ok
-				assert.length(result,24)
+				assert.length(result, 24)
 				itemId = result;
 				done();
 			}, function(e) {
@@ -85,7 +84,7 @@ describe('Test cases for node-dri package', function() {
 	}), describe('Calling getObject(id, onSuccess, onError) to get an item', function() {
 		it('should get an Item and return the Item', function(done) {
 			dri.getObject(itemId, function(result) {
-				assert.include(result._id,itemId)
+				assert.include(result._id, itemId)
 				done();
 			}, function(e) {
 				should.not.exist(e);
@@ -103,7 +102,7 @@ describe('Test cases for node-dri package', function() {
 	}), describe('Calling getChildren(parentId, onSuccess, onError) to get the children of a series', function() {
 		it('should get the series and return the children', function(done) {
 			dri.getChildren(seriesId, function(result) {
-				assert.include(result[0],itemId);
+				assert.include(result[0], itemId);
 				done();
 			}, function(e) {
 				should.not.exist(e);
@@ -131,7 +130,7 @@ describe('Test cases for node-dri package', function() {
 	}), describe('Calling removeObject(id, onSuccess, onError) with a item id', function() {
 		it('should remove the item from MongoDB', function(done) {
 			dri.removeObject(itemId, function(result) {
-				assert.include(result,itemId)
+				assert.include(result, itemId)
 				done();
 			}, function(err) {
 				should.not.exist(e);
@@ -141,7 +140,7 @@ describe('Test cases for node-dri package', function() {
 	}), describe('calling removeObject(id, onSuccess, onError) with a series id', function() {
 		it('should remove the series from MongoDB', function(done) {
 			dri.removeObject(seriesId, function(result) {
-				assert.include(result,seriesId)
+				assert.include(result, seriesId)
 				done();
 			}, function(err) {
 				should.not.exist(e);
@@ -151,10 +150,19 @@ describe('Test cases for node-dri package', function() {
 	}), describe('Calling removeObject(id, onSuccess, onError) with a collection id', function() {
 		it('should remove the collection from MongoDB', function(done) {
 			dri.removeObject(collId, function(result) {
-				assert.include(result,collId)
+				assert.include(result, collId)
 				done();
 			}, function(err) {
 				should.not.exist(e);
+				done();
+			});
+		})
+	}), describe('Calling saveBinary(data)', function() {
+		it('should store a binary file on the filesystem', function(done) {
+			dri.saveBinary(null, function(result) {
+				assert.equal(1, result);
+				done();
+			}, function(err) {
 				done();
 			});
 		})
