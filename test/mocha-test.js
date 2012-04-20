@@ -28,7 +28,7 @@ describe('Test cases for node-dri package', function() {
 			var data = {
 				properties : {
 					title : "AutoTestColl" + rnd,
-					subtitle : "AutoTestColl" + rnd
+					subtitle : "SubAutoTestColl" + rnd
 				},
 				status : "open",
 				type:"collection"
@@ -47,7 +47,7 @@ describe('Test cases for node-dri package', function() {
 			var data = {
 				properties : {
 					title : "AutoTestSeries" + rnd,
-					subtitle : "AutoTestSeries" + rnd
+					subtitle : "SubAutoTestSeries" + rnd
 				},
 				status : "open",
 				type:"series",
@@ -67,7 +67,7 @@ describe('Test cases for node-dri package', function() {
 			var data = {
 				properties : {
 					title : "AutoTestItem" + rnd,
-					subtitle : "AutoTestItem" + rnd
+					subtitle : "SubAutoTestItem" + rnd
 				},
 				status : "open",
 				type:"item",
