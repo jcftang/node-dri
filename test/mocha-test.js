@@ -5,6 +5,9 @@
 var assert = require('chai').assert
 var should = require('should')
 var dri = require('dri');
+var request = require('request');
+var fs = require('fs');
+var http = require('http');
 
 var collId = "";
 var seriesId = "";
