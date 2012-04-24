@@ -160,14 +160,5 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Calling saveBinary(data)', function() {
-		it('should store a binary file on the filesystem', function(done) {
-			dri.saveBinary(null, function(result) {
-				assert.equal(1, result);
-				done();
-			}, function(err) {
-				done();
-			});
-		})
 	})
 })
