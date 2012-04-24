@@ -17,6 +17,7 @@
 	"mongoose": ">= 2.5.13",
 	"node-fs": ">= 0.1.2",
 	"multipart": ">= 0.1.5",
+	"request": ">= 2.9.202",
 	"fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-0.0.3.tar.gz"
   },
   "devDependencies": {
