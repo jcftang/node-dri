@@ -6,14 +6,21 @@ var assert = require('chai').assert
 var should = require('should')
 var dri = require('dri');
 var request = require('request');
-var fs = require('fs');
-var http = require('http');
 
 var collId = "";
 var seriesId = "";
 var itemId = "";
-var arrItems = new Array();
 var rnd = Math.floor(Math.random() * 1001);
+
+
+// Create mock config file to configure the package
+var config ={
+    "uploadDirectory": "/tmp/uploads/"
+  , "fedoraURL": "howest-server.tchpc.tcd.ie"
+  , "fedoraPort": 9191
+  , "fedoraAuth": "fedoraAdmin:admin"
+}
+dri.configure(config)
 
 describe('Test cases for node-dri package', function() {
 	describe('Calling getObjectTypes(onSuccess, onError), will get object types', function() {
