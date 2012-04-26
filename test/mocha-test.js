@@ -147,7 +147,7 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('calling removeObject(id, onSuccess, onError) with a series id', function() {
+	}), describe('Calling removeObject(id, onSuccess, onError) with a series id', function() {
 		it('should remove the series from MongoDB', function(done) {
 			dri.removeObject(seriesId, function(result) {
 				assert.include(result, seriesId)
