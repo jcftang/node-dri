@@ -1,31 +1,31 @@
 {
-  "author": "QMJ <howest-interns@tchpc.tcd.ie> (http://www.tchpc.tcd.ie/)",
-  "name": "dri",
-  "description": "Digital Repository Ireland - backend operations",
-  "version": "0.0.4",
-  "homepage": "http://www.tchpc.tcd.ie/",
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-dri"
+  "author": "QMJ <howest-interns@tchpc.tcd.ie> (http://www.tchpc.tcd.ie/)"
+  , "name": "dri"
+  , "description": "Digital Repository Ireland - backend operations"
+  , "version": "0.0.4"
+  , "homepage": "http://www.tchpc.tcd.ie/"
+  , "repository": {
+    "type": "git"
+    , "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-dri"
   },
-  "main": "./lib/dri",
-  "scripts": {
+  "main": "./lib/dri"
+  , "scripts": {
     "test": "make test"
   },
   "dependencies": {
-	"mongoose": ">= 2.5.13",
-	"node-fs": ">= 0.1.2",
-	"request": ">= 2.9.202",
-	"formidable": ">= 1.0.9",
-	"util": ">= 0.4.9",
-	"mime": ">= 1.2.5",
-	"fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-master.tar.gz"
+	"mongoose": ">= 2.5.13"
+	, "node-fs": ">= 0.1.2"
+	, "request": ">= 2.9.202"
+	, "formidable": ">= 1.0.9"
+	, "util": ">= 0.4.9"
+	, "mime": ">= 1.2.5"
+	, "fedora": "http://howest-server.tchpc.tcd.ie/cgi-bin/cgit.cgi/howest/node/node-fedora.git/snapshot/node-fedora-master.tar.gz"
   },
   "devDependencies": {
-	"mocha": ">= 1.0.0",
-	"chai": ">= 0.5.2",
-	"should": ">= 0.6.0",
-	"expresso": ">= 0.9.2"
+	"mocha": ">= 1.0.0"
+	, "chai": ">= 0.5.2"
+	, "should": ">= 0.6.0"
+	, "expresso": ">= 0.9.2"
   },
   "optionalDependencies": {},
   "engines": {
