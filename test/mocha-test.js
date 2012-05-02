@@ -12,13 +12,12 @@ var seriesId = "";
 var itemId = "";
 var rnd = Math.floor(Math.random() * 1001);
 
-
 // Create mock config file to configure the package
-var config ={
-    "uploadDirectory": "/tmp/uploads/"
-  , "fedoraURL": "howest-server.tchpc.tcd.ie"
-  , "fedoraPort": 9191
-  , "fedoraAuth": "fedoraAdmin:admin"
+var config = {
+	"uploadDirectory" : "/tmp/uploads/",
+	"fedoraURL" : "howest-server.tchpc.tcd.ie",
+	"fedoraPort" : 9191,
+	"fedoraAuth" : "fedoraAdmin:admin"
 }
 dri.configure(config)
 
@@ -36,8 +35,10 @@ describe('Test cases for node-dri package', function() {
 		it('should create a collection and return the id of the collection', function(done) {
 			var data = {
 				properties : {
-					title : "AutoTestColl" + rnd,
-					subtitle : "SubAutoTestColl" + rnd
+					titleInfo : {
+						title : "AutoTestColl" + rnd,
+						subtitle : "SubAutoTestColl" + rnd
+					}
 				},
 				status : "open",
 				type : "collection"
@@ -55,8 +56,10 @@ describe('Test cases for node-dri package', function() {
 		it('should create a series and return the id of the series', function(done) {
 			var data = {
 				properties : {
-					title : "AutoTestSeries" + rnd,
-					subtitle : "SubAutoTestSeries" + rnd
+					titleInfo : {
+						title : "AutoTestSeries" + rnd,
+						subtitle : "SubAutoTestSeries" + rnd
+					}
 				},
 				status : "open",
 				type : "series",
@@ -75,8 +78,10 @@ describe('Test cases for node-dri package', function() {
 		it('should create an Item and return the id of the Item', function(done) {
 			var data = {
 				properties : {
-					title : "AutoTestItem" + rnd,
-					subtitle : "SubAutoTestItem" + rnd
+					titleInfo : {
+						title : "AutoTestItem" + rnd,
+						subtitle : "SubAutoTestItem" + rnd
+					}
 				},
 				status : "open",
 				type : "item",
