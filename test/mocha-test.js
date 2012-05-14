@@ -116,7 +116,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling getChildren(parentId, onSuccess, onError) to get the children of a series', function() {
 		it('should get the series and return the children', function(done) {
-			dri.getChildren(seriesId, function(result) {
+			dri.getChildren(seriesId,0, 20, function(result) {
 				assert.include(result[0], itemId);
 				done();
 			}, function(e) {
