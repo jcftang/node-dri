@@ -35,10 +35,10 @@ describe('Test cases for node-dri package', function() {
 		it('should create a collection and return the id of the collection', function(done) {
 			var data = {
 				properties : {
-					titleInfo : {
+					titleInfo : [{
 						title : "AutoTestColl" + rnd,
 						subtitle : "SubAutoTestColl" + rnd
-					}
+					}]
 				},
 				status : "open",
 				type : "collection"
@@ -56,10 +56,10 @@ describe('Test cases for node-dri package', function() {
 		it('should create a series and return the id of the series', function(done) {
 			var data = {
 				properties : {
-					titleInfo : {
+					titleInfo : [{
 						title : "AutoTestSeries" + rnd,
 						subtitle : "SubAutoTestSeries" + rnd
-					}
+					}]
 				},
 				status : "open",
 				type : "series",
@@ -78,10 +78,10 @@ describe('Test cases for node-dri package', function() {
 		it('should create an Item and return the id of the Item', function(done) {
 			var data = {
 				properties : {
-					titleInfo : {
+					titleInfo : [{
 						title : "AutoTestItem" + rnd,
 						subtitle : "SubAutoTestItem" + rnd
-					}
+					}]
 				},
 				status : "open",
 				type : "item",
@@ -105,6 +105,16 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
+	}), describe('Calling getObject(id, onSuccess, onError) to get an item and convert to Dublin Core', function() {
+		it('should get an Item and return the Item', function(done) {
+			dri.getObject(itemId, function(result) {
+				var dc = dri.convertToDC(result)
+				assert.include(dc, itemId)
+				done();
+			}, function(e) {
+				should.not.exist(e);
+			});
+		})
 	}), describe('Calling getObject(id, onSuccess, onError) to get a Series', function() {
 		it('should get an series and return the series', function(done) {
 			dri.getObject(seriesId, function(result) {
@@ -116,7 +126,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling getChildren(parentId, onSuccess, onError) to get the children of a series', function() {
 		it('should get the series and return the children', function(done) {
-			dri.getChildren(seriesId,0, 20, function(result) {
+			dri.getChildren(seriesId, 0, 20, function(result) {
 				assert.include(result[0], itemId);
 				done();
 			}, function(e) {
