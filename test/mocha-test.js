@@ -45,7 +45,7 @@ describe('Test cases for node-dri package', function() {
 			};
 			dri.createObject(data, function(result) {
 				result.should.be.ok
-				assert.length(result, 24)
+				assert.lengthOf(result, 24)
 				collId = result;
 				done();
 			}, function(e) {
@@ -67,7 +67,7 @@ describe('Test cases for node-dri package', function() {
 			};
 			dri.createObject(data, function(result) {
 				result.should.be.ok
-				assert.length(result, 24)
+				assert.lengthOf(result, 24)
 				seriesId = result;
 				done();
 			}, function(e) {
@@ -89,7 +89,7 @@ describe('Test cases for node-dri package', function() {
 			};
 			dri.createObject(data, function(result) {
 				result.should.be.ok
-				assert.length(result, 24)
+				assert.lengthOf(result, 24)
 				itemId = result;
 				done();
 			}, function(e) {
