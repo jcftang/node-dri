@@ -152,6 +152,16 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
+	}), describe('Stats', function() {
+		it('should push the item into fedora and return the fedora id from that item', function(done) {
+			dri.getAmountObjects(function(amount) {
+				assert.isNumber(amount)
+				done();
+			}, function(err) {
+				should.not.exist(e);
+				done();
+			});
+		})
 	}), describe('Calling removeObject(id, onSuccess, onError) with a item id', function() {
 		it('should remove the item from MongoDB', function(done) {
 			dri.removeObject(itemId, function(result) {
