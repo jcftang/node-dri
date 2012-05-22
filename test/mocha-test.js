@@ -153,9 +153,20 @@ describe('Test cases for node-dri package', function() {
 			});
 		})
 	}), describe('Stats', function() {
-		it('should push the item into fedora and return the fedora id from that item', function(done) {
-			dri.getAmountObjects(function(amount) {
+		it('should return the amount of objects in MongoDB', function(done) {
+			dri.countObjects({},function(amount) {
 				assert.isNumber(amount)
+				done();
+			}, function(err) {
+				should.not.exist(e);
+				done();
+			});
+		})
+	}), describe('Querying', function() {
+		it('should return an array containing objects that contain the searched field', function(done) {
+			dri.query("label", "e2f",function(data) {
+				console.log(data)
+				should.exist(data)
 				done();
 			}, function(err) {
 				should.not.exist(e);
