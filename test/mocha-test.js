@@ -17,7 +17,8 @@ var config = {
 	"uploadDirectory" : "/tmp/uploads/",
 	"fedoraURL" : "howest-server.tchpc.tcd.ie",
 	"fedoraPort" : 9191,
-	"fedoraAuth" : "fedoraAdmin:admin"
+	"fedoraAuth" : "fedoraAdmin:admin",
+	"mongoDBURL" : "mongodb://localhost/dri" /*URL to the mongoDB instance*/
 }
 dri.configure(config)
 
@@ -154,7 +155,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Stats', function() {
 		it('should return the amount of objects in MongoDB', function(done) {
-			dri.countObjects({},function(amount) {
+			dri.countObjects({}, function(amount) {
 				assert.isNumber(amount)
 				done();
 			}, function(err) {
@@ -164,9 +165,11 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Querying', function() {
 		it('should return an array containing objects that contain the searched field', function(done) {
-			dri.query("label", "e2f",function(data) {
-				console.log(data)
+			dri.query("label", "e2f", function(data) {
+				//console.log(data)
 				should.exist(data)
+				assert.include(data[0], "label");
+				assert.include(data[0], "e2f");
 				done();
 			}, function(err) {
 				should.not.exist(e);
