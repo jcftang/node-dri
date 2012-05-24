@@ -165,8 +165,8 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Querying', function() {
 		it('should return an array containing objects that contain the searched field', function(done) {
-			dri.query("label", "e2f", function(data) {
-				//console.log(data)
+			dri.query("label", "50c25df5b", function(data) {
+				console.log(data)
 				should.exist(data)
 				assert.include(data[0], "label");
 				assert.include(data[0], "e2f");
