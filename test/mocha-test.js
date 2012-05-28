@@ -153,6 +153,16 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
+	}), describe('Calling unapproveItem(id, fedoraNamespace, onSuccess, onError) with a item id', function() {
+		it('should push the item into fedora and return the fedora id from that item', function(done) {
+			dri.unapproveItem(itemId, "afedoraLib", function(pid) {
+				pid.should.include(":");
+				done();
+			}, function(err) {
+				should.not.exist(e);
+				done();
+			});
+		})
 	}), describe('Stats', function() {
 		it('should return the amount of objects in MongoDB', function(done) {
 			dri.countObjects({}, function(amount) {
