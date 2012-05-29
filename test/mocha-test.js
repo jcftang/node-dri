@@ -153,7 +153,7 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Stats', function() {
+	}), describe('Calling countObjects(options, onSuccess, onError) with no options', function() {
 		it('should return the amount of objects in MongoDB', function(done) {
 			dri.countObjects({}, function(amount) {
 				assert.isNumber(amount)
@@ -163,10 +163,9 @@ describe('Test cases for node-dri package', function() {
 				done();
 			});
 		})
-	}), describe('Querying', function() {
+	}), describe('Calling query(field, value, onSuccess, onError) ', function() {
 		it('should return an array containing objects that contain the searched field', function(done) {
 			dri.query("label", "50c25df5b", function(data) {
-				console.log(data)
 				should.exist(data)
 				assert.include(data[0], "label");
 				assert.include(data[0], "e2f");
