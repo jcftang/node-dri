@@ -107,9 +107,19 @@ describe('Test cases for node-dri package', function() {
 			});
 		})
 	}), describe('Calling getObject(id, onSuccess, onError) to get an item and convert to Dublin Core', function() {
-		it('should get an Item and return the Item', function(done) {
+		it('should get an Item and return the Item in DC', function(done) {
 			dri.getObject(itemId, function(result) {
 				var dc = dri.convertToDC(result)
+				assert.include(dc, itemId)
+				done();
+			}, function(e) {
+				should.not.exist(e);
+			});
+		})
+	}), describe('Calling getObject(id, onSuccess, onError) to get an item and convert to MODS', function() {
+		it('should get an Item and return the Item in MODS', function(done) {
+			dri.getObject(itemId, function(result) {
+				var dc = dri.convertToMODS(result)
 				assert.include(dc, itemId)
 				done();
 			}, function(e) {
@@ -169,6 +179,48 @@ describe('Test cases for node-dri package', function() {
 				should.exist(data)
 				assert.include(data[0], "label");
 				assert.include(data[0], "e2f");
+				done();
+			}, function(err) {
+				should.not.exist(e);
+				done();
+			});
+		})
+	}), describe('Calling lastCreated(onSuccess, onError) ', function() {
+		it('should return an array containing the last 5 created objects', function(done) {
+			dri.lastCreated(function(data) {
+				should.exist(data)
+				done();
+			}, function(err) {
+				should.not.exist(e);
+				done();
+			});
+		})
+	}), describe('Calling lastEdited(onSuccess, onError) ', function() {
+		it('should return an array containing the last 5 edited objects', function(done) {
+			dri.lastEdited(function(data) {
+				should.exist(data)
+				done();
+			}, function(err) {
+				should.not.exist(e);
+				done();
+			});
+		})
+	}), describe('Calling lastCreatedByType(type, onSuccess, onError) ', function() {
+		it('should return an array containing the last 5 created items', function(done) {
+			dri.lastCreatedByType("item",function(data) {
+				should.exist(data)
+				assert.include(data[0], "item");
+				done();
+			}, function(err) {
+				should.not.exist(e);
+				done();
+			});
+		})
+	}), describe('Calling lastEditedByType(type, onSuccess, onError) ', function() {
+		it('should return an array containing the last 5 edited items', function(done) {
+			dri.lastEditedByType("item",function(data) {
+				should.exist(data)
+				assert.include(data[0], "item");
 				done();
 			}, function(err) {
 				should.not.exist(e);
