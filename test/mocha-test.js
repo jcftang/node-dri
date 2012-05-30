@@ -21,6 +21,120 @@ var config = {
 	"mongoDBURL" : "mongodb://localhost/dri" /*URL to the mongoDB instance*/
 }
 dri.configure(config)
+var data = {
+	status : "open",
+	type : "item",
+	properties : {
+		relatedItem : [{
+			title : "hsthshsshsf",
+			type : "series"
+		}],
+		tableOfContents : [{
+			texttableOfContentsDescription : "yrshs5yfgh",
+			type : "text"
+		}],
+		language : [{
+			languageTerm : [{
+				authority : "iso639-2b4",
+				language : "English",
+				type : "text"
+			}]
+		}],
+		accessCondition : [{
+			type : "restriction"
+		}],
+		location : [{
+			url : "srysrysrysr",
+			enumerationAndChronology : "5yr5ysrysry",
+			shelfLocator : "ys5ys",
+			physicalLocation : "shtsrhstr5"
+		}],
+		identifier : [{
+			identifier : "shtrshsrhsrh",
+			type : "dris"
+		}],
+		subject : [{
+			topic : [{
+				topic : "4s5yserys5ys5ryrs",
+				authority : "lcsh"
+			}],
+			authority : "naf",
+			type : "personal",
+			name : "hdfghdfdfgh"
+		}],
+		note : [{
+			note : "hdhgdhdfgggg",
+			type : "acquisition"
+		}],
+		abstract : [{
+			abstract : [{
+				abstract : "2344654635",
+				type : "text"
+			}]
+		}],
+		physicalDescription : [{
+			internetMediaType : [{
+				internetMediaType : "image/tiff"
+			}],
+			type : [{
+				typeDescription : "2345",
+				type : "condition"
+			}],
+			digitalOrigin : "reformatted",
+			note : "2345",
+			extent : "2345"
+		}],
+		originInfo : [{
+			dateOther : [{
+				dateOther : "2345",
+				point : "beginning"
+			}],
+			frequency : "2345",
+			issuance : "2345",
+			edition : "2345",
+			copyrightDate : "2345",
+			dateValid : "2345",
+			dateCaptured : "2345",
+			dateIssued : "2345",
+			publisher : "123`",
+			place : "1234"
+		}, {
+			dateOther : [{
+				dateOther : "jdgj",
+				point : "beginning"
+			}],
+			frequency : "dgyjyjdg",
+			issuance : "jdgj",
+			edition : "dgjdg",
+			copyrightDate : "jdgjdg",
+			dateValid : "dgyjdg",
+			dateCaptured : "jdgj",
+			dateIssued : "dgyjdg",
+			publisher : "dyjjjydgjd",
+			place : "f7fiujmdg"
+		}],
+		genre : [{
+			genre : "advertisements",
+			authority : "aat"
+		}],
+		typeOfResource : [{
+			typeOfResource : "text"
+		}],
+		name : [{
+			role : "arc",
+			authority : "naf",
+			name : "1234",
+			type : "personal"
+		}],
+		titleInfo : [{
+			nonSort : "1234",
+			partNumber : "1234",
+			subtitle : "1234",
+			title : "1234",
+			type : "title"
+		}]
+	}
+}
 
 describe('Test cases for node-dri package', function() {
 	describe('Calling getObjectTypes(onSuccess, onError), will get object types', function() {
@@ -34,16 +148,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling createObject(data, onSuccess, onError) to create a collection', function() {
 		it('should create a collection and return the id of the collection', function(done) {
-			var data = {
-				properties : {
-					titleInfo : [{
-						title : "AutoTestColl" + rnd,
-						subtitle : "SubAutoTestColl" + rnd
-					}]
-				},
-				status : "open",
-				type : "collection"
-			};
+			data.type = "collection"
 			dri.createObject(data, function(result) {
 				result.should.be.ok
 				assert.lengthOf(result, 24)
@@ -55,17 +160,10 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling createObject(data, onSuccess, onError) to create a series', function() {
 		it('should create a series and return the id of the series', function(done) {
-			var data = {
-				properties : {
-					titleInfo : [{
-						title : "AutoTestSeries" + rnd,
-						subtitle : "SubAutoTestSeries" + rnd
-					}]
-				},
-				status : "open",
-				type : "series",
-				parentId : collId
-			};
+
+			data.type = "series"
+			data.parentId = collId
+
 			dri.createObject(data, function(result) {
 				result.should.be.ok
 				assert.lengthOf(result, 24)
@@ -77,17 +175,9 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling createObject(data, onSuccess, onError) to create an item', function() {
 		it('should create an Item and return the id of the Item', function(done) {
-			var data = {
-				properties : {
-					titleInfo : [{
-						title : "AutoTestItem" + rnd,
-						subtitle : "SubAutoTestItem" + rnd
-					}]
-				},
-				status : "open",
-				type : "item",
-				parentId : seriesId
-			};
+
+			data.type = "item"
+			data.parentId = seriesId
 			dri.createObject(data, function(result) {
 				result.should.be.ok
 				assert.lengthOf(result, 24)
@@ -207,7 +297,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling lastCreatedByType(type, onSuccess, onError) ', function() {
 		it('should return an array containing the last 5 created items', function(done) {
-			dri.lastCreatedByType("item",function(data) {
+			dri.lastCreatedByType("item", function(data) {
 				should.exist(data)
 				assert.include(data[0], "item");
 				done();
@@ -218,7 +308,7 @@ describe('Test cases for node-dri package', function() {
 		})
 	}), describe('Calling lastEditedByType(type, onSuccess, onError) ', function() {
 		it('should return an array containing the last 5 edited items', function(done) {
-			dri.lastEditedByType("item",function(data) {
+			dri.lastEditedByType("item", function(data) {
 				should.exist(data)
 				assert.include(data[0], "item");
 				done();
