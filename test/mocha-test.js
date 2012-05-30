@@ -187,6 +187,18 @@ describe('Test cases for node-dri package', function() {
 				should.not.exist(e);
 			});
 		})
+	}), describe('Calling updateObject(id, data, onSuccess, onError) to create an item', function() {
+		it('should updat an Item and return the id of the Item', function(done) {
+			data.properties.titleInfo[0].title = "updated title"
+			dri.updateObject(itemId ,data, function(result) {
+				result.should.be.ok
+				assert.include(result._id, itemId)
+				assert.include(result, "updated title")
+				done();
+			}, function(e) {
+				should.not.exist(e);
+			});
+		})
 	}), describe('Calling getObject(id, onSuccess, onError) to get an item', function() {
 		it('should get an Item and return the Item', function(done) {
 			dri.getObject(itemId, function(result) {
