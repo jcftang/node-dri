@@ -6,7 +6,7 @@
   , "homepage": "http://www.tchpc.tcd.ie/"
   , "repository": {
     "type": "git"
-    , "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-dri"
+    , "url": "git://github.com/jcftang/node-fedora.git"
   },
   "main": "./lib/dri"
   , "scripts": {
@@ -21,7 +21,7 @@
 	, "mime": ">= 1.2.5"
 	, "underscore": ">= 1.3.3"
 	, "winston": ">= 0.5.11"
-	, "fedora": "https://github.com/QuirijnGB/node-fedora/tarball/master"
+	, "fedora": ">=0.0.5"
   },
   "devDependencies": {
 	"mocha": ">= 1.0.0"
