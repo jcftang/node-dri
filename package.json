@@ -6,7 +6,7 @@
   , "homepage": "http://www.tchpc.tcd.ie/"
   , "repository": {
     "type": "git"
-    , "url": "git://github.com/jcftang/node-fedora.git"
+    , "url": "https://github.com/jcftang/node-dri.git"
   },
   "main": "./lib/dri"
   , "scripts": {
